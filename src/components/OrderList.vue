@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import OrderDetails from './OrderDetails'
+import OrderDetails from './OrderDetails' // Link Order details component for modal representation.
 export default {
   name: 'OrderList',
   components:{
@@ -43,7 +43,7 @@ export default {
   },
   data(){
     return {
-      orderList:[{
+      orderList:[{                      // Sample datas for order list.
         name:"Suresh Reddy",
         itemsCount:2,
         totalAmount:300,
@@ -94,7 +94,7 @@ export default {
     }
   },
   methods: {
-    setTextcolor(status){
+    setTextcolor(status){                             //Used to change status text color.
         if(status === 0)
           return "text-primary"
         else if (status === 1)
@@ -102,11 +102,11 @@ export default {
         else
           return "text-success"
     },
-    changeStatus(index,status){
+    changeStatus(index,status){                      //On button click automatically change status to next step.
       if(status < 2)
         this.orderList[index]["status"]=status+1;
     },
-    showDetails(order){
+    showDetails(order){                             //On buuton(View Details) click to open particular order details.
       this.activeOrder=order;
       this.$refs['showOrderDetail'].show()
     }

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import OrderList from './components/OrderList.vue'
+import OrderList from './components/OrderList.vue' // Link Oder list Component to root app
 
 export default {
   name: 'App',
@@ -19,7 +19,8 @@ export default {
 </script>
 
 <style>
-@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css";
+/* Used fontawesome CDN for icons */
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css"; 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
