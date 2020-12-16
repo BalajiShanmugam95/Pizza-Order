@@ -1,5 +1,11 @@
 # pizza
 
+A simple web-app💻 which helps to manage pizza orders received and change status accordingly.Frontend🖥️ comprises of simple VueJs with the integration of CSS library Bootstrap.
+
+## Early preview
+  Orders List
+  Order Details
+    
 ## Project setup
 ```
 npm install
