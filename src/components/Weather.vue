@@ -21,7 +21,7 @@ export default {
             else if(this.statusTimeCode == 2)
                 return "noon-bg"
             else if(this.statusTimeCode == 3)
-                return "noon-bg"
+                return "evening-bg"
             else
                 return "night-bg"
         }
