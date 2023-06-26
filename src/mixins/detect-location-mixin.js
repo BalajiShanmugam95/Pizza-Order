@@ -16,8 +16,8 @@ export default {
         getCountryName(){
             try {
                 if(timeZone){
-                    const {countriesWithCode,timeZonesList} =locationList;
-                    const _countryCode = timeZonesList[timeZone].c[0];
+                    const {countriesWithCode} =locationList;
+                    const _countryCode = this.detectCountryCode();
                     const country = countriesWithCode[_countryCode];
 
                     return country
@@ -44,8 +44,7 @@ export default {
         },
         findUserContinent(){
             try {
-                const {timeZonesList} =locationList;
-                const _countryCode = timeZonesList[timeZone].c[0];
+                const _countryCode = this.detectCountryCode();
 
                 if(!_countryCode)
                     return null;
@@ -62,6 +61,26 @@ export default {
             } catch (error) {
                console.log(error);
                return null
+            }
+        },
+        detectCountryCode(){
+            try {
+                const {timeZonesList} =locationList;
+                let locationDetails =timeZonesList[timeZone];
+                const {c,a}=locationDetails;
+
+                if(c){
+                    return c[0];
+                }else if(a){
+                    if(timeZonesList[a] && timeZonesList[a]['c'])
+                        return timeZonesList[a]['c'][0]
+
+                    return null
+                }
+                return null
+            } catch (error) {
+                console.log(error)
+                return null
             }
         },
         // detectCountyCodes(){
@@ -87,5 +106,7 @@ export default {
        this.d_countryName=this.getCountryName();
        this.d_stateName=this.getStateName();
        this.d_continentName=this.findUserContinent();
+       
+    //    console.log('Country :'+this.d_countryName+' ContinentName :'+this.d_continentName+ ' State :'+this.d_stateName);
     }
 }
