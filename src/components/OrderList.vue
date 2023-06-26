@@ -36,8 +36,10 @@
 
 <script>
 import OrderDetails from './OrderDetails' // Link Order details component for modal representation.
+import detectLocationMixin from '../mixins/detect-location-mixin' // detect user location based in time zone
 export default {
   name: 'OrderList',
+  mixins:[detectLocationMixin],
   components:{
     OrderDetails
   },
